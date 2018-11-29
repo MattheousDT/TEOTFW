@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'OzHandicraft BT';
+    src: url('OzHandicraftBT-Roman.eot');
+    src: url('OzHandicraftBT-Roman.eot?#iefix') format('embedded-opentype'),
+        url('OzHandicraftBT-Roman.woff2') format('woff2'),
+        url('OzHandicraftBT-Roman.woff') format('woff'),
+        url('OzHandicraftBT-Roman.ttf') format('truetype'),
+        url('OzHandicraftBT-Roman.svg#OzHandicraftBT-Roman') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'The Hand Extrablack';
+    src: url('TheHandExtrablack.eot');
+    src: url('TheHandExtrablack.eot?#iefix') format('embedded-opentype'),
+        url('TheHandExtrablack.woff2') format('woff2'),
+        url('TheHandExtrablack.woff') format('woff'),
+        url('TheHandExtrablack.ttf') format('truetype'),
+        url('TheHandExtrablack.svg#TheHandExtrablack') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
