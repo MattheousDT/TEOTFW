@@ -2,13 +2,13 @@
 
 <head>
 
-	<title>The End of the F***ing World</title>
+    <title>The End of the F***ing World</title>
 
-	<link rel="stylesheet" href="css/animate.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-	 crossorigin="anonymous">
-	<style>
-		@import url('css/fonts/stylesheet.css');
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <style>
+        @import url('css/fonts/stylesheet.css');
 
 
         body {
@@ -132,274 +132,308 @@
             width: 100%;
             height: relative;
         }
+
+                .episode {
+            height: 100%;
+            width: 100%;
+            z-index: 999;
+            background-color: rgba(255, 255, 255, 0.719);
+            position: fixed;
+            
+        }
     </style>
 </head>
 
 <body>
-	<!-- Characters -->
-	<div id="parallax-container">
-		<div id="parallax-images">
-			<div style="background: url(img/parallax_bg.png);"></div>
-			<div style="background: url(img/parallax_bg.png);"></div>
-			<div style="background: url(img/parallax_trees.png);"></div>
-			<div style="background: url(img/parallax_hedge.png);"></div>
-			<div style="background: url(img/parallax_characters.png);">
+    <div class="episode" style="display:none;">
+        <div class="h-100 d-flex justify-content-center align-items-center">
+            <div class="row w-100 justify-content-center">
+                <div class="col-xl-3 pr-5">
+                    <div id="episode-container">
+                        <video style="position: relative; width: 100%; padding-top: 4vh" class="text-center" src="vid/socialbackground.mp4"></video>
+                        <img id="episode-img" style="position:absolute; top:0; right: 0; transform: translateY(10px); z-index: 300; width: 100%"
+                            class="pr-3" src="img/polaroid.png">
+                    </div>
+                </div>
+                <div class="col-xl-3 pl-5">
+                    <div style="background:rgba(255, 255, 255, 0.911)">
+                        <p>blah blah</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-				<map name="image-map" style="width: 100px; height: 100px;">
-					<area target="_blank" alt="James" title="James" href="" coords="652,1077,651,1036,638,969,623,924,614,868,579,846,558,783,551,737,548,659,556,585,567,520,570,422,582,349,607,303,643,286,675,269,707,242,706,212,692,190,674,161,670,129,668,96,689,66,713,52,746,44,792,54,818,73,831,105,828,152,821,181,804,198,797,234,811,257,841,285,896,308,913,335,923,385,933,441,936,512,923,595,945,608,950,639,952,673,953,713,948,759,943,778,935,791,933,815,925,851,909,863,876,868,873,899,866,956,857,1010,851,1078"
-					 shape="poly">
-					<area target="_blank" alt="Alyssa" title="Alyssa" href="" coords="1044,1078,1026,999,1010,956,999,941,980,929,971,895,968,866,970,826,958,749,953,712,951,676,949,646,949,605,919,597,953,437,978,400,1014,380,1029,375,1038,270,1041,195,1061,156,1077,148,1097,137,1124,137,1144,144,1161,153,1177,178,1183,202,1195,241,1212,288,1248,342,1273,373,1289,407,1307,454,1353,583,1320,598,1324,646,1324,743,1324,792,1324,841,1326,875,1324,907,1303,924,1287,934,1271,936,1258,1078"
-					 shape="poly">
-				</map>
+    <!-- Characters -->
+    <div id="parallax-container">
+        <div id="parallax-images">
+            <div style="background: url(img/parallax_bg.png);"></div>
+            <div style="background: url(img/parallax_bg.png);"></div>
+            <div style="background: url(img/parallax_trees.png);"></div>
+            <div style="background: url(img/parallax_hedge.png);"></div>
+            <div style="background: url(img/parallax_characters.png);">
 
 
-			</div>
-			<!-- James Clickable -->
-			<a onclick="charPage('james');" onmouseover="charName('james');">
-				<div class="character" id="james-half" style="width:50%;"></div>
-			</a>
-
-			<!-- Alyssa Clickable -->
-			<a onmouseover="charName('alyssa')">
-				<div class="character" id="alyssa-half" style="width:50%; margin-left: 50%"></div>
-			</a>
-		</div>
-	</div>
+                <map name="image-map" style="width: 100px; height: 100px;">
+                    <area target="_blank" alt="James" title="James" href="" coords="652,1077,651,1036,638,969,623,924,614,868,579,846,558,783,551,737,548,659,556,585,567,520,570,422,582,349,607,303,643,286,675,269,707,242,706,212,692,190,674,161,670,129,668,96,689,66,713,52,746,44,792,54,818,73,831,105,828,152,821,181,804,198,797,234,811,257,841,285,896,308,913,335,923,385,933,441,936,512,923,595,945,608,950,639,952,673,953,713,948,759,943,778,935,791,933,815,925,851,909,863,876,868,873,899,866,956,857,1010,851,1078"
+                        shape="poly">
+                    <area target="_blank" alt="Alyssa" title="Alyssa" href="" coords="1044,1078,1026,999,1010,956,999,941,980,929,971,895,968,866,970,826,958,749,953,712,951,676,949,646,949,605,919,597,953,437,978,400,1014,380,1029,375,1038,270,1041,195,1061,156,1077,148,1097,137,1124,137,1144,144,1161,153,1177,178,1183,202,1195,241,1212,288,1248,342,1273,373,1289,407,1307,454,1353,583,1320,598,1324,646,1324,743,1324,792,1324,841,1326,875,1324,907,1303,924,1287,934,1271,936,1258,1078"
+                        shape="poly">
+                </map>
 
 
-	<!-- Episodes -->
-	<div data-jarallax data-speed="0.4" class="jarallax" style="background-image: url('img/bg.png');">
-		<div class="container pt-4">
-			<div class="row">
-				<div class="col-12">
-					<h1 class="header-text text-center">episodes</h1>
-				</div>
-			</div>
-			<div class="row pt-5 mt-5">
+            </div>
+            <!-- James Clickable -->
+            <a onclick="charPage('james');" onmouseover="charName('james');">
+                <div class="character" id="james-half" style="width:50%;"></div>
+            </a>
 
-				<div class="col-lg-3 col-md-4 col-6 cardCol wow fadeIn mb-5" style="height: 315.781px; transform: rotate(1deg)"
-				 data-wow-delay="0s" data-toggle="modal" data-target="#episodeModal">
-					<div class="cardOverlay"></div>
-					<a onclick="openEpisode(0)">
-						<div class="js-tilt cardContainer" data-tilt="" data-tilt-perspective="500">
-							<img class="img-fluid cardBg" src="img/ep1.jpg">
-							<div class="cardFrame">
-								<img class="img-fluid" src="img/polaroid_1.png">
-							</div>
-						</div>
-					</a>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-6 cardCol wow fadeIn mb-5" style="height: 315.781px; transform: rotate(-2deg)"
-				 data-wow-delay="0.8s">
-					<div class="cardOverlay"></div>
-					<a onclick="openEpisode(1)">
-						<div class="js-tilt cardContainer" data-tilt="" data-tilt-perspective="500">
-							<img class="img-fluid cardBg" src="img/ep2.jpg">
-							<div class="cardFrame">
-								<img class="img-fluid" src="img/polaroid_2.png">
-							</div>
-						</div>
-					</a>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-6 cardCol wow fadeIn mb-5" style="height: 315.781px; transform: rotate(-1deg)"
-				 data-wow-delay="1.4s">
-					<div class="cardOverlay"></div>
-					<a onclick="openEpisode(2)">
-						<div class="js-tilt cardContainer" data-tilt="" data-tilt-perspective="500">
-							<img class="img-fluid cardBg" src="img/ep3.jpg">
-							<div class="cardFrame">
-								<img class="img-fluid" src="img/polaroid_3.png">
-							</div>
-						</div>
-					</a>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-6 cardCol wow fadeIn mb-5" style="height: 315.781px; transform: rotate(2deg)"
-				 data-wow-delay="0.6s">
-					<div class="cardOverlay"></div>
-					<a onclick="openEpisode(3)">
-						<div class="js-tilt cardContainer" data-tilt="" data-tilt-perspective="500">
-							<img class="img-fluid cardBg" src="img/ep4.jpg">
-							<div class="cardFrame">
-								<img class="img-fluid" src="img/polaroid_4.png">
-							</div>
-						</div>
-					</a>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-6 cardCol wow fadeIn mb-5" style="height: 315.781px; transform: rotate(-2deg)"
-				 data-wow-delay="1.2s">
-					<div class="cardOverlay"></div>
-					<a onclick="openEpisode(4)">
-						<div class="js-tilt cardContainer" data-tilt="" data-tilt-perspective="500">
-							<img class="img-fluid cardBg" src="img/ep5.jpg">
-							<div class="cardFrame">
-								<img class="img-fluid" src="img/polaroid_5.png">
-							</div>
-						</div>
-					</a>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-6 cardCol wow fadeIn mb-5" style="height: 315.781px; transform: rotate(-3deg)"
-				 data-wow-delay="0.4s">
-					<div class="cardOverlay"></div>
-					<a onclick="openEpisode(5)">
-						<div class="js-tilt cardContainer" data-tilt="" data-tilt-perspective="500">
-							<img class="img-fluid cardBg" src="img/ep6.jpg">
-							<div class="cardFrame">
-								<img class="img-fluid" src="img/polaroid_6.png">
-							</div>
-						</div>
-					</a>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-6 cardCol wow fadeIn mb-5" style="height: 315.781px; transform: rotate(2deg)"
-				 data-wow-delay="0.2s">
-					<div class="cardOverlay"></div>
-					<a onclick="openEpisode(6)">
-						<div class="js-tilt cardContainer" data-tilt="" data-tilt-perspective="500">
-							<img class="img-fluid cardBg" src="img/ep7.jpg">
-							<div class="cardFrame">
-								<img class="img-fluid" src="img/polaroid_7.png">
-							</div>
-						</div>
-					</a>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-6 cardCol wow fadeIn mb-5" style="height: 315.781px; transform: rotate(4deg)"
-				 data-wow-delay="1.0s">
-					<div class="cardOverlay"></div>
-					<a onclick="openEpisode(7)">
-						<div class="js-tilt cardContainer" data-tilt="" data-tilt-perspective="500">
-							<img class="img-fluid cardBg" src="img/ep8.jpg">
-							<div class="cardFrame">
-								<img class="img-fluid" src="img/polaroid_8.png">
-							</div>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
+            <!-- Alyssa Clickable -->
+            <a onmouseover="charName('alyssa')">
+                <div class="character" id="alyssa-half" style="width:50%; margin-left: 50%"></div>
+            </a>
+        </div>
+    </div>
 
 
-	<!-- Photo Generator -->
-	<div data-jarallax data-speed="0.4" class="jarallax" style="background-image: url('img/bg.png');">
-		<div class="container py-5">
-			<div class="row">
-				<div class="col-12">
-					<h1 class="header-text text-center mt-3" style="transform:rotate(-1deg);">get your f***ing photo</h1>
-				</div>
-			</div>
-			<div class="row pt-5 mt-5 pb-5">
-				<div class="col-6">
-					<img class="img-fluid" src="img/polaroid.png">
-				</div>
-				<div class="col-6">
-					<h2 class="text-center" style="font-family: The Hand; text-transform:uppercase; font-size: 4.5rem">Enter Your Name</h2>
-					<input class="form-control form-control-lg mt-4" type="text">
-					<button class="btn btn-danger mt-4 mx-auto" role="button">Generate Your Photo</a>
-				</div>
-			</div>
-		</div>
+    <!-- Episodes -->
+    <div data-jarallax data-speed="0.4" class="jarallax" style="background-image: url('img/bg.png');">
+        <div class="container pt-4">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="header-text text-center">episodes</h1>
+                </div>
+            </div>
+            <div class="row pt-5 mt-5">
 
-	</div>
+                <div class="col-lg-3 col-md-4 col-6 cardCol wow fadeIn mb-5" style="height: 315.781px; transform: rotate(1deg)"
+                    data-wow-delay="0s" data-toggle="modal" data-target="#episodeModal">
+                    <div class="cardOverlay"></div>
+                    <a onclick="openEpisode(0)">
+                        <div class="js-tilt cardContainer" data-tilt="" data-tilt-perspective="500">
+                            <img class="img-fluid cardBg" src="img/ep1.jpg">
+                            <div class="cardFrame">
+                                <img class="img-fluid" src="img/polaroid_1.png">
+                            </div>
+                        </div>
+                    </a>
+                </div>
 
-	<!-- Background Local Video Parallax -->
-	<div class="jarallax hmm" data-jarallax-video="mp4:vid/socialbackground.mp4">
-		<div class="row">
-			<div class="col-3">
-				<div></div>
-			</div>
-		</div>
-	</div>
+                <div class="col-lg-3 col-md-4 col-6 cardCol wow fadeIn mb-5" style="height: 315.781px; transform: rotate(-2deg)"
+                    data-wow-delay="0.8s">
+                    <div class="cardOverlay"></div>
+                    <a onclick="openEpisode(1)">
+                        <div class="js-tilt cardContainer" data-tilt="" data-tilt-perspective="500">
+                            <img class="img-fluid cardBg" src="img/ep2.jpg">
+                            <div class="cardFrame">
+                                <img class="img-fluid" src="img/polaroid_2.png">
+                            </div>
+                        </div>
+                    </a>
+                </div>
 
-	<!-- Episodes Modal -->
+                <div class="col-lg-3 col-md-4 col-6 cardCol wow fadeIn mb-5" style="height: 315.781px; transform: rotate(-1deg)"
+                    data-wow-delay="1.4s">
+                    <div class="cardOverlay"></div>
+                    <a onclick="openEpisode(2)">
+                        <div class="js-tilt cardContainer" data-tilt="" data-tilt-perspective="500">
+                            <img class="img-fluid cardBg" src="img/ep3.jpg">
+                            <div class="cardFrame">
+                                <img class="img-fluid" src="img/polaroid_3.png">
+                            </div>
+                        </div>
+                    </a>
+                </div>
 
-	<!-- Modal -->
-	<div class="modal fade" id="episodeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-	 aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content" style="width: 100%">
-				<div class="row">
-					<div class="col-6">
-						<div style="transform:rotate(-3deg) translateY(-50%); position: absolute;">
-							<img src="img/polaroid.png" class="img-fluid mx-auto d-flex" style="z-index: 0">
-							<video width="400" controls style="z-index: -20; transform: translateY(-150%) translateZ(-100px)">
-								<source src="vid/socialbackground.mp4" type="video/mp4">
-							</video>
-						</div>
-					</div>
-					<div class="col-6">
-						<h1>Episode 1</h1>
+                <div class="col-lg-3 col-md-4 col-6 cardCol wow fadeIn mb-5" style="height: 315.781px; transform: rotate(2deg)"
+                    data-wow-delay="0.6s">
+                    <div class="cardOverlay"></div>
+                    <a onclick="openEpisode(3)">
+                        <div class="js-tilt cardContainer" data-tilt="" data-tilt-perspective="500">
+                            <img class="img-fluid cardBg" src="img/ep4.jpg">
+                            <div class="cardFrame">
+                                <img class="img-fluid" src="img/polaroid_4.png">
+                            </div>
+                        </div>
+                    </a>
+                </div>
 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                <div class="col-lg-3 col-md-4 col-6 cardCol wow fadeIn mb-5" style="height: 315.781px; transform: rotate(-2deg)"
+                    data-wow-delay="1.2s">
+                    <div class="cardOverlay"></div>
+                    <a onclick="openEpisode(4)">
+                        <div class="js-tilt cardContainer" data-tilt="" data-tilt-perspective="500">
+                            <img class="img-fluid cardBg" src="img/ep5.jpg">
+                            <div class="cardFrame">
+                                <img class="img-fluid" src="img/polaroid_5.png">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-6 cardCol wow fadeIn mb-5" style="height: 315.781px; transform: rotate(-3deg)"
+                    data-wow-delay="0.4s">
+                    <div class="cardOverlay"></div>
+                    <a onclick="openEpisode(5)">
+                        <div class="js-tilt cardContainer" data-tilt="" data-tilt-perspective="500">
+                            <img class="img-fluid cardBg" src="img/ep6.jpg">
+                            <div class="cardFrame">
+                                <img class="img-fluid" src="img/polaroid_6.png">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-6 cardCol wow fadeIn mb-5" style="height: 315.781px; transform: rotate(2deg)"
+                    data-wow-delay="0.2s">
+                    <div class="cardOverlay"></div>
+                    <a onclick="openEpisode(6)">
+                        <div class="js-tilt cardContainer" data-tilt="" data-tilt-perspective="500">
+                            <img class="img-fluid cardBg" src="img/ep7.jpg">
+                            <div class="cardFrame">
+                                <img class="img-fluid" src="img/polaroid_7.png">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-6 cardCol wow fadeIn mb-5" style="height: 315.781px; transform: rotate(4deg)"
+                    data-wow-delay="1.0s">
+                    <div class="cardOverlay"></div>
+                    <a onclick="openEpisode(7)">
+                        <div class="js-tilt cardContainer" data-tilt="" data-tilt-perspective="500">
+                            <img class="img-fluid cardBg" src="img/ep8.jpg">
+                            <div class="cardFrame">
+                                <img class="img-fluid" src="img/polaroid_8.png">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-	 crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-	 crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-	 crossorigin="anonymous"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
-	<!-- Jarallax -->
-	<script src="https://unpkg.com/jarallax@1.10/dist/jarallax.min.js"></script>
+    <!-- Photo Generator -->
+    <div data-jarallax data-speed="0.4" class="jarallax" style="background-image: url('img/bg.png');">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="header-text text-center mt-3" style="transform:rotate(-1deg);">get your f***ing photo</h1>
+                </div>
+            </div>
+            <div class="row pt-5 mt-5 pb-5">
+                <div class="col-6">
+                    <img class="img-fluid" src="img/polaroid.png">
+                </div>
+                <div class="col-6 align-self-center">
+                    <h2 class="text-center" style="font-family: The Hand; text-transform:uppercase; font-size: 4.5rem">Enter
+                        Your Name</h2>
+                    <input class="form-control form-control-lg mt-4" type="text">
+                    <div class="row justify-content-center pb-5 mb-5">
+                        <div class="col-12"><button class="btn btn-danger mt-4 mx-auto d-flex" role="button">Generate Your
+                                Photo</a></div>
+                    </div>
 
-	<!-- Include it if you want to use Video parallax -->
-	<script src="https://unpkg.com/jarallax@1.10/dist/jarallax-video.min.js"></script>
+                </div>
+            </div>
+        </div>
 
-	<!-- Include it if you want to parallax any element -->
-	<script src="https://unpkg.com/jarallax@1.10/dist/jarallax-element.min.js"></script>
-	<script src="js/wow.min.js"></script>
-	<script>
-		new WOW().init();
+    </div>
 
-		$('.js-tilt').tilt({
-			scale: 0.90,
-			glare: false
-		});
-	</script>
-	<script>
-		//Character Parallax
-		window.addEventListener('scroll', () => {
-			let parent = document.getElementById('parallax-images');
-			let children = parent.getElementsByTagName('div');
-			for (let i = 0; i < children.length; i++) {
-				children[i].style.transform = 'translateY(-' + (window.pageYOffset * i / children.length) +
-					'px)';
-			}
-		}, false)
+    <!-- Background Local Video Parallax -->
+    <div class="jarallax hmm" data-jarallax-video="mp4:vid/socialbackground.mp4">
+        <div id="socials" class="row justify-content-center px-5 mx-5">
+            <div class="col-3">
+                <div style="background-color:aqua; height: 100%">
+
+                </div>
+            </div>
+            <div class="col-3">
+                    <div style="background-color:aqua; height:100%">
+    
+                    </div>
+                </div>
+                <div class="col-3">
+                        <div style="background-color:aqua; height:100%">
+        
+                        </div>
+                    </div>
+                    <div class="col-3">
+                            <div style="background-color:aqua; height:100%">
+            
+                            </div>
+                        </div>
+        </div>
+    </div>
 
 
-		//Episode Selector
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+    <!-- Jarallax -->
+    <script src="https://unpkg.com/jarallax@1.10/dist/jarallax.min.js"></script>
 
-		let episodes = [
-			"Episode 1 desc",
-			"Episode 2 desc",
-			"Episode 3 desc"
-		]
+    <!-- Include it if you want to use Video parallax -->
+    <script src="https://unpkg.com/jarallax@1.10/dist/jarallax-video.min.js"></script>
 
-		function openEpisode(episode) {
-			console.log(episodes[episode]);
-		}
+    <!-- Include it if you want to parallax any element -->
+    <script src="https://unpkg.com/jarallax@1.10/dist/jarallax-element.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script>
+        new WOW().init();
 
-		function charName(char) {
-			$(".character").html("");
-			$("#" + char + "-half").html(
-				`
+        $('.js-tilt').tilt({
+            scale: 0.90,
+            glare: false
+        });
+    </script>
+    <script>
+        function sizeFixes() {
+            $("#episode-container").css("height", $("#episode-img").height());
+            $("#socials").children().css("height", $("#socials").children().width());
+        }
+
+        sizeFixes();
+
+
+        //Character Parallax
+        window.addEventListener('scroll', () => {
+            let parent = document.getElementById('parallax-images');
+            let children = parent.getElementsByTagName('div');
+            for (let i = 0; i < children.length; i++) {
+                children[i].style.transform = 'translateY(-' + (window.pageYOffset * i / children.length) +
+                    'px)';
+            }
+        }, false)
+
+
+        //Episode Selector
+
+        let episodes = [
+            "Episode 1 desc",
+            "Episode 2 desc",
+            "Episode 3 desc"
+        ]
+
+        function openEpisode(episode) {
+            console.log(episodes[episode]);
+        }
+
+        function charName(char) {
+            $(".character").html("");
+            $("#" + char + "-half").html(
+                `
                 <h1 class="${char}-text">${char}</h1>
                 `
-			)
-		}
-	</script>
+            )
+        }
+    </script>
 </body>
 
 </html>
