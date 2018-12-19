@@ -25,6 +25,26 @@
             margin-top: 30%;
             margin-right: 50%;
             text-shadow: -5px 5px rgba(0, 0, 0, 0.664);
+			pointer-events: none;
+        }
+
+		.james-find {
+            font-family: OzHandicraft BT;
+            text-transform: uppercase;
+            color: #c00000;
+            font-size: 8rem;
+            transform: rotate(-5deg);
+			text-shadow: -5px 5px rgba(0, 0, 0, 0.664);
+        }
+
+		.james-find.confirm {
+            font-size: 4rem;
+			text-shadow: -2px 2px rgba(0, 0, 0, 0.664);
+			cursor: pointer;
+        }
+
+		.james-find.confirm:hover {
+            color: #e73030;
         }
 
         .alyssa-text {
@@ -37,7 +57,28 @@
             margin-top: 40%;
             margin-left: 50%;
             text-shadow: 5px 5px rgba(0, 0, 0, 0.664);
+			pointer-events: none;
         }
+
+		.alyssa-find {
+            font-family: OzHandicraft BT;
+            text-transform: uppercase;
+            color: #c00000;
+            font-size: 8rem;
+            transform: rotate(-5deg);
+			text-shadow: -5px 5px rgba(0, 0, 0, 0.664);
+        }
+
+		.alyssa-find.confirm {
+            font-size: 4rem;
+			text-shadow: -2px 2px rgba(0, 0, 0, 0.664);
+			cursor: pointer;
+        }
+
+		.alyssa-find.confirm:hover {
+            color: #e73030;
+        }
+
 
         .header-text {
             font-family: OzHandicraft BT;
@@ -60,7 +101,7 @@
             position: fixed;
             top: 0;
             background-repeat: no-repeat !important;
-            background-size: contain;
+            background-size: cover !important;
             background-position: top !important;
             transform: translateY(0px);
             height: 100%;
@@ -81,7 +122,7 @@
 
         .cardBg {
             
-            transform: translateY(-52px) rotate(-0.5deg);
+            transform: translateY(-54px) rotate(-0.5deg);
         }
 
         .cardContainer {
@@ -97,7 +138,7 @@
             width: 100%;
             position: absolute;
             z-index: 2;
-            transform: translateZ(15px) translateY(-100%);
+            transform: translateZ(35px) translateY(-100%);
             cursor: pointer;
         }
 
@@ -123,14 +164,21 @@
             height: relative;
         }
 
-                .episode {
+    	.episode {
             height: 100%;
             width: 100%;
             z-index: 999;
-            background-color: rgba(255, 255, 255, 0.719);
+            background-color: rgba(255, 255, 255, 0.918);
             position: fixed;
             
         }
+
+		.episode p {
+			font-family: The Hand;
+			text-transform: uppercase;
+			font-size: 1.7rem;
+			text-align: center
+		}
 		
 		.image-preview{
 			background-image:url('img/upload.png');
@@ -143,23 +191,178 @@
 			width: 375px;
 			z-index: -20;
 		}
+
+		.character-view {
+            height: 100%;
+            width: 100%;
+            z-index: 999;
+            background-color: #000000;
+            position: fixed;
+            
+        }
+
+		.notepad {
+            height: 100%;
+            width: 100%;
+            z-index: 1200;
+            background-color: rgba(0, 0, 0, 0.829);
+            position: fixed;
+            
+        }
+		.notepad-text{
+			position: absolute;
+			width: 40%;
+    		top: -33vh;
+    		left: 58%;
+		}
+
+		.notepad p {
+			font-family: The Hand;
+			text-transform: uppercase;
+			font-size: 2.5rem;
+			text-align: left;
+		}
+
+		area {
+			background: #c00000;
+			height: 100%;
+			width: 100%;
+		}
+
+		.display-none-important {
+			display: none!important;
+		}
     </style>
 </head>
 
 <body>
-	<div class="episode" style="display:none;">
+	<div id="episode-view" class="episode" style="display:none;">
 		<div class="h-100 d-flex justify-content-center align-items-center">
 			<div class="row w-100 justify-content-center">
 				<div class="col-xl-3 pr-5">
 					<div id="episode-container">
-						<video style="position: relative; width: 100%; padding-top: 4vh" class="text-center" src="vid/socialbackground.mp4"></video>
-						<img id="episode-img" style="position:absolute; top:0; right: 0; transform: translateY(10px); z-index: 300; width: 100%"
-						 class="pr-3" src="img/polaroid.png">
+
+						<video id="episode-video" style="position: relative;top: 3vh;float: right;right: -2vh;width: 62%;" class="text-center"
+						 src="" volume="0.2"></video>
+						<img style="position:absolute; top:0; right: 0; transform: translateY(10px); z-index: 300; height: 100%" class="pr-3"
+						 src="img/polaroid.png">
 					</div>
 				</div>
 				<div class="col-xl-3 pl-5">
-					<div style="background:rgba(255, 255, 255, 0.911)">
-						<p>blah blah</p>
+					<div>
+						<h1 id="episode-num" class="header-text text-center">episode</h1>
+						<p id="episode-desc"></p>
+						<div class="row justify-content-center">
+							<a id="episode-netflix" class="btn btn-danger text-center mr-2">Watch on Netflix</a>
+							<a id="episode-all4" class="btn btn-info text-center ml-2">Watch on All4</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="james-view" class="character-view" style="display:none;">
+		<img src="img/james_background.png" id="map-image" style="width: 2380px; max-width: 100%; height: auto; position: fixed"
+		 alt="" usemap="#james-map" />
+		<map id="james-game" name="james-map">
+			<area href="" id="james-area-0" shape="poly" coords="1710, 14, 1742, 41, 1709, 48, 1719, 64, 1748, 52, 1751, 126, 1757, 126, 1754, 51, 1771, 65, 1797, 62, 1799, 52, 1762, 40, 1799, 30, 1804, 14, 1763, 27, 1754, 24, 1740, 23, 1718, 6" />
+			<area href="" id="james-area-1" shape="poly" coords="1333, 692, 1325, 705, 1323, 728, 1329, 744, 1337, 749, 1348, 732, 1351, 700" />
+			<area href="" id="james-area-2" shape="poly" coords="1014, 805, 1034, 822, 1057, 790, 1077, 818, 1096, 803, 1101, 778, 1097, 768, 1112, 766, 1109, 708, 1078, 726, 1067, 750, 1060, 755, 1051, 753, 1013, 718, 997, 713, 1000, 757, 1000, 771, 1007, 777" />
+			<area href="" id="james-area-3" shape="poly" coords="804, 289, 819, 256, 844, 248, 901, 240, 953, 257, 971, 267, 982, 282, 1016, 313, 1081, 329, 1038, 333, 1006, 315, 981, 299, 961, 300, 974, 312, 931, 297, 884, 304, 834, 298" />
+			<area href="" id="james-area-4" shape="poly" coords="1387, 203, 1423, 225, 1433, 244, 1486, 246, 1525, 262, 1515, 297, 1528, 326, 1542, 315, 1542, 269, 1561, 232, 1588, 250, 1614, 279, 1624, 276, 1609, 241, 1582, 220, 1569, 176, 1531, 161, 1519, 127, 1489, 122, 1481, 146, 1431, 157, 1417, 170, 1397, 172, 1387, 189, 1387, 198" />
+			<area href="" id="james-area-5" shape="poly" coords="1370, 594, 1423, 638, 1513, 637, 1574, 614, 1607, 606, 1618, 630, 1633, 661, 1672, 630, 1672, 611, 1750, 637, 1819, 625, 1859, 594, 1875, 580, 1867, 572, 1835, 573, 1825, 558, 1818, 542, 1792, 542, 1761, 530, 1744, 511, 1731, 518, 1671, 496, 1660, 460, 1646, 462, 1648, 478, 1649, 496, 1637, 478, 1627, 485, 1617, 499, 1607, 459, 1578, 463, 1584, 498, 1541, 519, 1523, 521, 1517, 517, 1492, 533, 1448, 545, 1425, 551, 1411, 586, 1375, 594" />
+			<area href="" id="james-area-6" shape="poly" coords="1472, 829, 1467, 809, 1452, 780, 1457, 728, 1488, 752, 1505, 778, 1510, 799, 1649, 745, 1651, 712, 1683, 687, 1688, 701, 1679, 738, 1708, 697, 1725, 709, 1710, 740, 1713, 754, 1753, 722, 1781, 697, 1804, 732, 1841, 826, 1816, 857, 1761, 924, 1702, 979, 1641, 1005, 1562, 1008, 1508, 992, 1474, 950, 1460, 902, 1472, 837" />
+			<area href="" id="james-area-7" shape="poly" coords="680, 115, 722, 161, 758, 178, 815, 186, 860, 177, 891, 189, 937, 188, 975, 192, 1014, 222, 1039, 207, 1049, 178, 1033, 168, 999, 181, 948, 148, 935, 132, 959, 108, 940, 64, 893, 58, 796, 55, 758, 62, 742, 37, 700, 35, 717, 56, 681, 95" />
+			<area href="" id="james-area-8" shape="poly" coords="559, 973, 532, 895, 562, 760, 598, 680, 621, 618, 636, 602, 671, 596, 706, 610, 750, 654, 743, 690, 717, 712, 711, 715, 710, 748, 737, 788, 745, 814, 705, 800, 688, 856, 670, 899, 653, 927, 643, 978, 693, 1010, 673, 1037, 650, 1037, 602, 997" />
+			<area href="" id="james-area-9" shape="poly" coords="169, 626, 206, 637, 253, 632, 276, 601, 311, 582, 357, 567, 397, 562, 422, 550, 433, 527, 428, 515, 410, 503, 387, 502, 400, 468, 392, 455, 359, 462, 323, 483, 307, 500, 302, 511, 298, 450, 297, 395, 299, 330, 301, 304, 342, 280, 379, 284, 403, 271, 411, 247, 402, 229, 384, 220, 374, 203, 350, 201, 310, 198, 303, 171, 300, 138, 290, 121, 308, 84, 285, 44, 243, 59, 217, 49, 204, 52, 192, 47, 170, 29, 138, 14, 118, 40, 108, 70, 95, 81, 86, 99, 94, 123, 112, 143, 109, 165, 89, 208, 78, 249, 62, 325, 58, 378, 46, 453, 40, 513, 38, 559, 57, 580, 71, 590, 68, 608, 91, 635, 117, 638, 131, 625" />
+		</map>
+
+		<div id="james-info" style="position:absolute; display: none!important" class="h-100 w-100 d-flex justify-content-center align-items-center">
+			<div class="row w-100 justify-content-center">
+				<div class="col-12">
+					<h1 id="james-info-title" class="text-center james-find">click on the animals to find all 10 facts</h1>
+					<h1 id="james-confirm" class="text-center james-find confirm">Let's f***ing go!</h1>
+				</div>
+			</div>
+		</div>
+		<div id="james-scoreboard" style="position:absolute;pointer-events: none; display: none!important" class="w-100">
+			<div class="row w-100 justify-content-center pt-3">
+				<div class="col-12">
+					<h1 id="james-score" class="text-center james-find" style="font-size:4rem; color: #ffffff; transform: rotate(0deg)">0/10</h1>
+				</div>
+			</div>
+		</div>
+		<div id="james-quit" style="position:absolute;pointer-events: none; bottom:0" class="w-100">
+			<div class="row w-100 justify-content-center pt-3">
+				<div class="col-12">
+					<h1 id="" class="text-center james-find" style="font-size:2.5rem; color: #bbb; transform: rotate(0deg); text-shadow: -2px 2px rgba(0, 0, 0, 0.664)">
+						press esc to exit</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="james-notepad" class="notepad" style="display: none;">
+		<div class="h-100 d-flex justify-content-center align-items-center">
+			<div class="row w-100 justify-content-center">
+				<div class="col-xl-6 pr-5">
+					<img style="position:absolute; top:-35vh;" class="img-fluid" src="img/notepad.png">
+					<div class="notepad-text">
+						<p id="james-notepad-text"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="alyssa-view" class="character-view" style="display:none;">
+		<img src="img/alyssa_background.png" id="map-image" style="width: 2389px; max-width: 100%; height: auto; position: fixed"
+		 alt="" usemap="#alyssa-map" />
+		<map id="alyssa-game" name="alyssa-map">
+			<area id="alyssa-area-0" shape="rect" coords="1416, 492, 1623, 777" />
+			<area id="alyssa-area-1" shape="rect" coords="1104, 498, 1337, 828" />
+			<area id="alyssa-area-2" shape="rect" coords="793, 505, 1058, 767" />
+			<area id="alyssa-area-3" shape="rect" coords="501, 498, 736, 834" />
+			<area id="alyssa-area-4" shape="rect" coords="187, 503, 443, 771" />
+			<area id="alyssa-area-5" shape="rect" coords="1393, 132, 1622, 453" />
+			<area id="alyssa-area-6" shape="rect" coords="1081, 196, 1348, 461" />
+			<area id="alyssa-area-7" shape="rect" coords="802, 140, 1027, 459" />
+			<area id="alyssa-area-8" shape="rect" coords="491, 91, 731, 462" />
+			<area id="alyssa-area-9" shape="rect" coords="243, 176, 438, 456" />
+		</map>
+		<div id="alyssa-info" style="position:absolute; display: none!important" class="h-100 w-100 d-flex justify-content-center align-items-center">
+			<div class="row w-100 justify-content-center">
+				<div class="col-12">
+					<h1 id="alyssa-info-title" class="text-center alyssa-find">click on the cards to find out more</h1>
+					<h1 id="alyssa-confirm" class="text-center alyssa-find confirm">Let's f***ing go!</h1>
+				</div>
+			</div>
+		</div>
+		<div id="alyssa-scoreboard" style="position:absolute;pointer-events: none; display: none!important" class="w-100">
+			<div class="row w-100 justify-content-center pt-3">
+				<div class="col-12">
+					<h1 id="alyssa-score" class="text-center alyssa-find" style="font-size:4rem; color: #ffffff; transform: rotate(0deg)">0/10</h1>
+				</div>
+			</div>
+		</div>
+		<div id="alyssa-quit" style="position:absolute;pointer-events: none; bottom:0" class="w-100">
+			<div class="row w-100 justify-content-center pt-3">
+				<div class="col-12">
+					<h1 id="" class="text-center alyssa-find" style="font-size:2.5rem; color: #bbb; transform: rotate(0deg); text-shadow: -2px 2px rgba(0, 0, 0, 0.664)">
+						press esc to exit</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="alyssa-notepad" class="notepad" style="display: none;">
+		<div class="h-100 d-flex justify-content-center align-items-center">
+			<div class="row w-100 justify-content-center">
+				<div class="col-xl-6 pr-5">
+					<img style="position:absolute; top:-35vh;" class="img-fluid" src="img/card.png">
+					<div class="notepad-text">
+						<p id="alyssa-notepad-text"></p>
 					</div>
 				</div>
 			</div>
@@ -176,15 +379,6 @@
 			<div style="background: url(img/parallax_hedge.png);"></div>
 			<div style="background: url(img/parallax_characters.png);">
 
-
-				<map name="image-map" style="width: 100px; height: 100px;">
-					<area target="_blank" alt="James" title="James" href="" coords="652,1077,651,1036,638,969,623,924,614,868,579,846,558,783,551,737,548,659,556,585,567,520,570,422,582,349,607,303,643,286,675,269,707,242,706,212,692,190,674,161,670,129,668,96,689,66,713,52,746,44,792,54,818,73,831,105,828,152,821,181,804,198,797,234,811,257,841,285,896,308,913,335,923,385,933,441,936,512,923,595,945,608,950,639,952,673,953,713,948,759,943,778,935,791,933,815,925,851,909,863,876,868,873,899,866,956,857,1010,851,1078"
-					 shape="poly">
-					<area target="_blank" alt="Alyssa" title="Alyssa" href="" coords="1044,1078,1026,999,1010,956,999,941,980,929,971,895,968,866,970,826,958,749,953,712,951,676,949,646,949,605,919,597,953,437,978,400,1014,380,1029,375,1038,270,1041,195,1061,156,1077,148,1097,137,1124,137,1144,144,1161,153,1177,178,1183,202,1195,241,1212,288,1248,342,1273,373,1289,407,1307,454,1353,583,1320,598,1324,646,1324,743,1324,792,1324,841,1326,875,1324,907,1303,924,1287,934,1271,936,1258,1078"
-					 shape="poly">
-				</map>
-
-
 			</div>
 			<!-- James Clickable -->
 			<a onclick="charPage('james');" onmouseover="charName('james');">
@@ -192,7 +386,7 @@
 			</a>
 
 			<!-- Alyssa Clickable -->
-			<a onmouseover="charName('alyssa')">
+			<a onclick="charPage('alyssa');" onmouseover="charName('alyssa')">
 				<div class="character" id="alyssa-half" style="width:50%; margin-left: 50%"></div>
 			</a>
 		</div>
@@ -314,11 +508,8 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
 
-	<!-- Photo Generator -->
-	<div data-jarallax data-speed="0.4" class="jarallax" style="background-image: url('img/bg.png');">
 		<div class="container py-5">
 			<div class="row">
 				<div class="col-12">
@@ -362,27 +553,28 @@
 	<!-- Background Local Video Parallax -->
 	<div class="jarallax hmm" data-jarallax-video="mp4:vid/socialbackground.mp4">
 		<div class="container">
-		<div id="socials" class="row justify-content-center px-5 mx-5" style="padding-top:25%">
-			<div class="col-3">
-				<a href="https://facebook.com/teotfwnetflix">
-				<div style="background-image: url('img/social_fb.png'); background-size: cover; height: 100%"></div>
-			</a>
-			</div>
-			<div class="col-3">
+			<div id="socials" class="row justify-content-center px-5 mx-5" style="padding-top:25%">
+				<div class="col-lg-3">
+					<a href="https://facebook.com/teotfwnetflix">
+						<div style="background-image: url('img/social_fb.png'); background-size: cover; height: 100%"></div>
+					</a>
+				</div>
+				<div class="col-lg-3">
 					<a href="https://twitter.com/teotfw?lang=en">
-				<div style="background-image: url('img/social_tw.png'); background-size: cover; height:100%"></div>
-			</a>
-			</div>
-			<div class="col-3">
+						<div style="background-image: url('img/social_tw.png'); background-size: cover; height:100%"></div>
+					</a>
+				</div>
+				<div class="col-lg-3">
 					<a href="https://www.netflix.com/title/80175722">
-				<div style="background-image: url('img/social_nf.png'); background-size: cover; height:100%"></div>
-			</a>
-			</div>
-			<div class="col-3">
+						<div style="background-image: url('img/social_nf.png'); background-size: cover; height:100%"></div>
+					</a>
+				</div>
+				<div class="col-lg-3">
 					<a href="https://www.channel4.com/programmes/the-end-of-the-ing-world">
-				<div style="background-image: url('img/social_c4.png'); background-size: cover; height:100%"></div>
-			</a>
-			</div></div>
+						<div style="background-image: url('img/social_c4.png'); background-size: cover; height:100%"></div>
+					</a>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -398,7 +590,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-						<canvas class="img-fluid" id="canvas" height="750" width="750"></canvas>
+					<canvas class="img-fluid" id="canvas" height="750" width="750"></canvas>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary">Share on Facebook</button>
@@ -409,6 +601,58 @@
 		</div>
 	</div>
 
+	<!-- Audio -->
+
+	<audio id="printing" preload="auto">
+		<source src="audio/print.mp3">
+		</source>
+	</audio>
+
+	<audio id="shutter" preload="auto">
+		<source src="audio/shutter.mp3">
+		</source>
+	</audio>
+
+	<audio id="hover" preload="auto">
+		<source src="audio/hover.mp3">
+		</source>
+	</audio>
+
+	<audio id="ding" preload="auto">
+		<source src="audio/ding.mp3">
+		</source>
+	</audio>
+
+	<audio id="page" preload="auto">
+		<source src="audio/page.mp3">
+		</source>
+	</audio>
+
+	<audio id="flashback" preload="auto">
+		<source src="audio/flashback_short.mp3">
+		</source>
+	</audio>
+
+	<audio id="guitar" preload="auto">
+		<source src="audio/guitar.mp3">
+		</source>
+	</audio>
+
+	<audio id="field" preload="auto">
+		<source src="audio/field.mp3">
+		</source>
+	</audio>
+
+	<audio id="saturday" preload="auto">
+			<source src="audio/saturday.mp3">
+			</source>
+		</audio>
+
+	<audio id="busStop" preload="auto">
+		<source src="audio/bus_stop.mp3">
+		</source>
+	</audio>
+
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 	 crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -416,17 +660,17 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 	 crossorigin="anonymous"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
-	<!-- Jarallax -->
 	<script src="https://unpkg.com/jarallax@1.10/dist/jarallax.min.js"></script>
-
-	<!-- Include it if you want to use Video parallax -->
 	<script src="https://unpkg.com/jarallax@1.10/dist/jarallax-video.min.js"></script>
-
-	<!-- Include it if you want to parallax any element -->
 	<script src="https://unpkg.com/jarallax@1.10/dist/jarallax-element.min.js"></script>
 	<script src="js/wow.min.js"></script>
-
 	<script src="js/dropzone.js"></script>
+	<script src="https://raw.githubusercontent.com/davidjbradshaw/imagemap-resizer/master/js/imageMapResizer.min.js"></script>
+	<script>
+		$(document).ready(function (e) {
+			$("map").imageMapResize();
+		});
+	</script>
 	<script>
 		new WOW().init();
 
@@ -436,6 +680,18 @@
 		});
 	</script>
 	<script>
+		//Audio Engine
+		function cloneAndPlay(audioNode) {
+			const clone = audioNode.cloneNode(true);
+			clone.volume = 0.1;
+			clone.play();
+		}
+
+		const flashback = document.getElementById("flashback");
+		const field = document.getElementById("field");
+		const busStop = document.getElementById("busStop");
+		const saturday = document.getElementById("saturday");
+
 		function sizeFixes() {
 			$("#episode-container").css("height", $("#episode-img").height());
 			$("#socials").children().css("height", $("#socials").children().width());
@@ -457,17 +713,95 @@
 
 		//Episode Selector
 
-		let episodes = [
-			"Episode 1 desc",
-			"Episode 2 desc",
-			"Episode 3 desc"
+		let episodes = [{
+				episode: "episode 1",
+				description: "Bored with killing animals, 17-year-old James is busy plotting his first real murder when brash new girl Alyssa catches him off guard at school.",
+				video: "vid/episodes/episode1.mp4",
+				netflix: "",
+				all4: ""
+			},
+			{
+				episode: "episode 2",
+				description: "On the road, James and Alyssa quickly realize they're in over their heads, but neither wants to admit it. A friendly army vet offers them help.",
+				video: "vid/episodes/episode2.mp4",
+				netflix: "",
+				all4: ""
+			},
+			{
+				episode: "episode 3",
+				description: "Hoping to lie low for a few days, the pair breaks into a home stocked with swanky amenities -- and a disturbing secret.",
+				video: "vid/episodes/episode3.mp4",
+				netflix: "",
+				all4: ""
+			},
+			{
+				episode: "episode 4",
+				description: "Alyssa begins to see James in a new light as they scramble to cover their tracks and alter their appearance after a harrowing night.",
+				video: "vid/episodes/episode4.mp4",
+				netflix: "",
+				all4: ""
+			},
+			{
+				episode: "episode 5",
+				description: "A flashback to a painful moment from childhood prompts James to change his plans. Out of cash, Alyssa resorts to shoplifting.",
+				video: "vid/episodes/episode5.mp4",
+				netflix: "",
+				all4: ""
+			},
+			{
+				episode: "episode 6",
+				description: "James reveals he's a man of hidden talents, Alyssa squares off with a shrewd gas station manager, and Eunice makes a startling discovery.",
+				video: "vid/episodes/episode6.mp4",
+				netflix: "",
+				all4: ""
+			},
+			{
+				episode: "episode 7",
+				description: "As Alyssa reconnects with her dad, a worried James faces a dilemma. Eunice and Teri clash over the best way to approach the teens.",
+				video: "vid/episodes/episode7.mp4",
+				netflix: "",
+				all4: ""
+			},
+			{
+				episode: "episode 8",
+				description: "Eunice goes rogue, Leslie shows his true colors, and Alyssa and James plan their escape -- but soon realize they're out of time.",
+				video: "vid/episodes/episode8.mp4",
+				netflix: "",
+				all4: ""
+			}
 		]
 
+		//Open Episode
 		function openEpisode(episode) {
-			console.log(episodes[episode]);
+			cloneAndPlay(shutter)
+			$("#episode-view").removeClass("animated fadeOut");
+
+			busStop.volume = 0;
+
+			$("#episode-num").text(episodes[episode].episode);
+			$("#episode-desc").text(episodes[episode].description);
+			$("#episode-netflix").attr("href", episodes[episode].netflix);
+			$("#episode-all4").attr("href", episodes[episode].all4);
+			$("#episode-video").attr("src", episodes[episode].video)
+			$("#episode-video").get(0).play();
+			$("#episode-view").show();
+			$("#episode-view").addClass("animated fadeIn")
 		}
 
+		//Close Episode
+		$("#episode-view").click(function () {
+			$("#episode-video").get(0).pause();
+			busStop.volume = 0.1;
+			$(this).addClass("animated fadeOut")
+			setTimeout(() => {
+				$(this).hide();
+			}, 700)
+
+		});
+
+		//Character Name
 		function charName(char) {
+			cloneAndPlay(hover);
 			$(".character").html("");
 			$("#" + char + "-half").html(
 				`
@@ -475,6 +809,245 @@
                 `
 			)
 		}
+
+		function charPage(char) {
+			$("#" + char + "-view").removeClass("animated fadeOut");
+			cloneAndPlay(ding);
+
+			if ($("#" + char + "-view").hasClass("completed") === false) {
+				//James
+				if (char === "james") {
+					$("#james-view").removeClass("animated slideOutLeft");
+					$("#" + char + "-view").addClass("animated slideInLeft")
+					setTimeout(() => {
+
+						busStop.pause();
+						busStop.currentTime = 0;
+						flashback.volume = 0.1;
+						flashback.play();
+
+						document.getElementById("flashback").onended = () => {
+							field.volume = 0.1;
+							field.play();
+						}
+						$("#james-info").show();
+						$("#james-info").addClass("animated bounceIn");
+					}, 600)
+
+					$("#james-confirm").click(() => {
+						$("#james-info").removeClass("animated bounceIn");
+						$("#james-info").addClass("animated bounceOut");
+						setTimeout(() => {
+							$("#james-info").addClass("display-none-important");
+							$("#james-scoreboard").show();
+							$("#james-scoreboard").addClass("animated bounceInDown");
+
+							//Game
+
+							let clicked = [];
+
+							let pages = [
+								"page 1",
+								"page 2",
+								"page 3",
+								"page 4",
+								"page 5",
+								"page 6",
+								"page 7",
+								"page 8",
+								"page 9",
+								"When I was 15, i took my neighbour's cat in a box and took it into the woods. <br><br> it probably had a name..."
+							]
+
+							const jamesMap = document.getElementById("james-game");
+
+
+							//Animal Click Events
+							jamesMap.onclick = (e) => {
+								e.preventDefault();
+								let i;
+
+								cloneAndPlay(page)
+
+								//Check if the animal has already been clicked
+								if (clicked.indexOf(e.path[0].id) == -1) {
+									clicked.push(e.path[0].id);
+
+								};
+								//update scoreboard
+
+								i = e.path[0].id.substring(11);
+								$("#james-notepad-text").html(pages[i]);
+								$("#james-score").text(clicked.length + "/10");
+								$("#james-notepad").removeClass("animated fadeOut");
+								$("#james-notepad").show();
+								$("#james-notepad").addClass("animated fadeIn");
+
+								//Exit Notepad
+								$("#james-notepad").click(() => {
+									$("#james-notepad").removeClass("animated fadeIn");
+									$("#james-notepad").addClass("animated fadeOut");
+
+									setTimeout(() => {
+										$("#james-notepad").hide();
+									}, 700)
+
+								});
+
+								if (clicked.length === 10) {
+									field.pause();
+									busStop.volume = 0.1;
+									busStop.play();
+									$("#james-info-title").text("You F***ing did it!");
+									$("#james-confirm").text("go back to main menu");
+									$("#james-info").removeClass("animated bounceOut display-none-important");
+									$("#james-info").show();
+									$("#james-info").addClass("animated bounceIn");
+
+									$("#james-confirm").click(() => {
+										$("#james-view").removeClass("animated slideInLeft");
+										$("#james-view").addClass("animated slideOutLeft completed");
+										setTimeout(() => {
+											$("#james-view").hide();
+										}, 900)
+									})
+								}
+								//return false;
+							}
+						}, 800)
+					});
+					$(document).keydown(function (e) {
+						if (e.key == "Escape") {
+							field.pause();
+							field.currentTime = 0;
+							$("#james-view").removeClass("animated slideInLeft");
+							$("#james-view").addClass("animated slideOutLeft");
+							setTimeout(() => {
+								$("#james-view").hide();
+							}, 900)
+						}
+					});
+
+				}
+				//Alyssa
+				else {
+					$("#alyssa-view").removeClass("animated slideOutRight");
+					$("#" + char + "-view").addClass("animated slideInRight")
+					setTimeout(() => {
+
+						busStop.pause();
+						busStop.currentTime = 0;
+						guitar.volume = 0.3;
+						guitar.play();
+
+						document.getElementById("guitar").onended = () => {
+							saturday.volume = 0.1;
+							saturday.play();
+						}
+						$("#alyssa-info").show();
+						$("#alyssa-info").addClass("animated bounceIn");
+					}, 600)
+
+					$("#alyssa-confirm").click(() => {
+						$("#alyssa-info").removeClass("animated bounceIn");
+						$("#alyssa-info").addClass("animated bounceOut");
+						setTimeout(() => {
+							$("#alyssa-info").addClass("display-none-important");
+							$("#alyssa-scoreboard").show();
+							$("#alyssa-scoreboard").addClass("animated bounceInDown");
+
+							//Game
+
+							let clicked = [];
+
+							let pages = [
+								"page 1",
+								"page 2",
+								"page 3",
+								"page 4",
+								"page 5",
+								"page 6",
+								"page 7",
+								"page 8",
+								"page 9",
+								"When I was 15, i took my neighbour's cat in a box and took it into the woods. <br><br> it probably had a name..."
+							]
+
+							const alyssaMap = document.getElementById("alyssa-game");
+
+
+							//Animal Click Events
+							alyssaMap.onclick = (e) => {
+								e.preventDefault();
+								let i;
+
+								cloneAndPlay(page)
+
+								//Check if the card has already been clicked
+								if (clicked.indexOf(e.path[0].id) == -1) {
+									clicked.push(e.path[0].id);
+
+								};
+								//update scoreboard
+
+								i = e.path[0].id.substring(12);
+								$("#alyssa-notepad-text").html(pages[i]);
+								$("#alyssa-score").text(clicked.length + "/10");
+								$("#alyssa-notepad").removeClass("animated fadeOut");
+								$("#alyssa-notepad").show();
+								$("#alyssa-notepad").addClass("animated fadeIn");
+
+								//Exit Notepad
+								$("#alyssa-notepad").click(() => {
+									$("#alyssa-notepad").removeClass("animated fadeIn");
+									$("#alyssa-notepad").addClass("animated fadeOut");
+
+									setTimeout(() => {
+										$("#alyssa-notepad").hide();
+									}, 700)
+
+								});
+
+								if (clicked.length === 10) {
+									saturday.pause();
+									busStop.volume = 0.1;
+									busStop.play();
+									$("#alyssa-info-title").text("You F***ing did it!");
+									$("#alyssa-confirm").text("go back to main menu");
+									$("#alyssa-info").removeClass("animated bounceOut display-none-important");
+									$("#alyssa-info").show();
+									$("#alyssa-info").addClass("animated bounceIn");
+
+									$("#alyssa-confirm").click(() => {
+										$("#alyssa-view").removeClass("animated slideInRight");
+										$("#alyssa-view").addClass("animated slideOutRight completed");
+										setTimeout(() => {
+											$("#alyssa-view").hide();
+										}, 900)
+									})
+								}
+								//return false;
+							}
+						}, 800)
+					});
+					$(document).keydown(function (e) {
+						if (e.key == "Escape") {
+							saturday.pause();
+							saturday.currentTime = 0;
+							$("#alyssa-view").removeClass("animated slideInRight");
+							$("#alyssa-view").addClass("animated slideOutRight");
+							setTimeout(() => {
+								$("#alyssa-view").hide();
+							}, 900)
+						}
+					});
+				}
+
+				$("#" + char + "-view").show();
+			}
+		}
+
+
 
 		let shareLink;
 
@@ -489,6 +1062,9 @@
 						$(".image-preview").css("background-image", "url('" + event.target.result + "')")
 
 						$("#generate").click(function () {
+
+							cloneAndPlay(shutter);
+
 							const c = document.getElementById("canvas").getContext("2d");
 
 							const img = new Image();
@@ -498,7 +1074,7 @@
 							const name = document.getElementById("username").value
 
 							img.onload = function () {
-
+								c.clearRect(0, 0, 750, 750);
 								c.drawImage(img, 0, 0, 750, 750)
 
 								c.rotate(-10 * Math.PI / 180)
@@ -511,8 +1087,12 @@
 									c.drawImage(logo, 0, 0)
 								}
 
-								$('#photoGenerator').modal('show')
-								shareLink = canvas.toDataURL()
+								setTimeout(function () {
+									cloneAndPlay(printing);
+									$('#photoGenerator').modal('show')
+									shareLink = canvas.toDataURL()
+								}, 200)
+
 
 							}
 
